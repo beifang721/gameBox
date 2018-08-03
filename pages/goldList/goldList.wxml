@@ -1,0 +1,50 @@
+<!--pages/goldList/goldList.wxml-->
+<view class='header-bg' id="mjltest">
+    <image class='avatarUrl' src='{{userInfo.avatarUrl}}'></image>
+    <view style='color:#fff'>
+      <view class='f32'>{{userInfo.nickName}}</view>
+      <view class='f24 gold-wrap'> 
+        <image class='global-gold38' src='/resources/images/global-gold-icon.png'></image> 
+        <text>{{userInfo.gold}}</text>
+      </view>
+    </view>
+</view>
+
+<view class='swiper-wrap text-center' id='swiperid'>
+  <view class="swiper-wrap-list f24 {{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichTop">
+    获得记录
+  </view>
+  <!-- <view class='divideline'></view> -->
+  <view class="swiper-wrap-list f24 {{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichTop">
+    消费记录
+  </view>
+</view>
+
+<scroll-view class='scroll-wrap' scroll-y="true" style='height:{{scrollHeight}}px;'>
+  <block wx:if="{{currentTab==0}}">
+    <view class='item' wx:for="{{[1,2,3,5,65,6,6,6]}}" wx:key="getkey">
+      <view class='item-left'>
+        <view class='f30'>签到</view>
+        <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>2018-07-19 15:31:02</view>
+      </view>
+      <view class='item-right f30'>
+        300金币
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{currentTab==1}}">
+    <view class='item'  wx:for="{{[1,2,3,5,6]}}" wx:key="xFkey">
+      <view class='item-left'>
+        <view class='f30'>签到123</view>
+        <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>2018-07-19 15:31:02</view>
+      </view>
+      <view class='item-right f30'>
+        -300金币
+      </view>
+    </view>
+  </block>
+  
+
+
+</scroll-view>

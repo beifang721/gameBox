@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/slots/slots",
+    "pages/person/person",
+    "pages/index/index",
+    "pages/mission/mission",
+    "pages/goldList/goldList",
+    "pages/find/find",
+    "pages/lottery/lottery"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "游戏盒子",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#343434",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "游戏库",
+        "iconPath": "resources/images/table-1.png",
+        "selectedIconPath": "resources/images/table-1-active.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "resources/images/table-2.png",
+        "selectedIconPath": "resources/images/table-2-active.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "resources/images/table-3.png",
+        "selectedIconPath": "resources/images/table-3-active.png"
+      }
+    ]
+  }
+}

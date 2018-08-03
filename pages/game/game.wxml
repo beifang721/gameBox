@@ -1,0 +1,41 @@
+<!--pages/game/game.wxml-->
+<import src="../../components/fruitMachine/fruitMachine.wxml"/>
+
+<block >
+        <view class="marquee_item {{idx == 1 ? 'on' : ''}}">
+          1<!-- <image src="/assets/marquee_lottery1.png" /> -->
+        </view>
+
+        <view class="marquee_item {{idx == 2 ? 'on' : ''}}">
+          2<!-- <image src="/assets/marquee_lottery2.png" /> -->
+        </view>
+
+        <view class="marquee_item {{idx == 3 ? 'on' : ''}}">
+          3<!-- <image src="/assets/marquee_lottery3.png" /> -->
+        </view>
+
+        <view class="marquee_item {{idx == 8 ? 'on' : ''}}">
+          8<!-- <image src="/assets/marquee_lottery2.png" /> -->
+        </view>
+
+        <view class="marquee_item marquee_item_btn" bindtap="start">
+          <!-- <image src="/assets/marquee_btn.png" /> -->
+        </view>
+
+        <view class="marquee_item {{idx == 4 ? 'on' : ''}}">
+          4<!-- <image src="/assets/marquee_lottery3.png" /> -->
+        </view>
+
+        <view class="marquee_item {{idx == 7 ? 'on' : ''}}">
+          7<!-- <image src="/assets/marquee_lottery1.png" /> -->
+        </view>
+
+        <view class="marquee_item {{idx == 6 ? 'on' : ''}}">
+          6<!-- <image src="/assets/marquee_lottery2.png" /> -->
+        </view>
+
+        <view class="marquee_item {{idx == 5 ? 'on' : ''}}">
+          5<!-- <image src="/assets/marquee_lottery1.png" /> -->
+        </view>
+
+      </block>

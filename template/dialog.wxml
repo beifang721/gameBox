@@ -1,0 +1,49 @@
+<template name="logindialog">
+  <view class='diaLog' catchtouchmove='true'>
+    <view class='login-bg'>
+      <view class='login-btnWrap text-center'>
+        <view class='f30'>Hi,您好!</view>
+        <view class='f32' bindtap='loginBtn'>进入游戏盒子</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="signdialog">
+  <view class='diaLog' catchtouchmove='true' wx:if="{{}}">
+    <image class='global-close-btn' bindtap='closeSign' src="/resources/images/global-sign-close.png"></image>
+    <view class='sign-bg'>
+      <view class='position-all-wrap'>
+        <view class='item-a-wrap'>
+          <block wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="akey">
+            <block wx:if="{{index<4}}">
+              <view class='sgin-item'>
+                <view style='padding:0 10rpx;'>1</view>
+                <view class='goldImg-wrap'>
+                  <image class='signGold' src='/resources/images/sign/signGold-1.png'></image>
+                  <!-- <image class='signGold' src='/resources/images/sign/sign-finish.png'></image> -->
+                </view>
+                <view class='f20 text-center' style='color:rgb(85,85,85)'>100金币</view>
+              </view>
+            </block>
+          </block>
+        </view>
+        <view class='item-b-wrap'>
+          <block wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="akey">
+            <block wx:if="{{index>=4}}">
+              <view class='sgin-item'>
+                <view style='padding:0 10rpx;'>1</view>
+                <view class='goldImg-wrap'>
+                  <image class='signGold' src='/resources/images/sign/signGold-1.png'></image>
+                  <!-- <image class='signGold' src='/resources/images/sign/sign-finish.png'></image> -->
+                </view>
+                <view class='f20 text-center' style='color:rgb(85,85,85)'>100金币</view>
+              </view>
+            </block>
+          </block>
+        </view>
+      </view>
+      <view class='global-sign-btn f30' bindtap='signBtn'>签到</view>
+    </view>
+  </view>
+</template>

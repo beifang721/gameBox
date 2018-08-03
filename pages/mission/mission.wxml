@@ -1,0 +1,36 @@
+<!--pages/mission/mission.wxml-->
+<import src="/template/missionTemplate.wxml"/> 
+<image class='sign-BG' src='/resources/images/sign/sign-BG.png'></image>
+<view class='sign-header'>
+  <view class='f30 yisginNum' style='color:rgb(34,34,34)'>已签到 \n(0天)</view>
+  <view class='item-a-wrap'>
+    <block wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="akey">
+      <block  wx:if="{{index<4}}">
+        <view class='sgin-item'>
+          <view style='padding:0 10rpx;'>1</view>
+          <view class='goldImg-wrap'>
+            <image class='signGold' src='/resources/images/sign/signGold-1.png'></image>
+            <!-- <image class='signGold' src='/resources/images/sign/sign-finish.png'></image> -->
+          </view>
+          <view class='f20 text-center' style='color:rgb(85,85,85)'>100金币</view>
+        </view>
+      </block> 
+    </block>
+  </view>
+  <view class='item-b-wrap'>
+    <block wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="akey">
+      <block  wx:if="{{index>=4}}">
+        <view class='sgin-item'>
+          <view style='padding:0 10rpx;'>1</view>
+          <view class='goldImg-wrap'>
+            <image class='signGold' src='/resources/images/sign/signGold-1.png'></image>
+            <!-- <image class='signGold' src='/resources/images/sign/sign-finish.png'></image> -->
+          </view>
+          <view class='f20 text-center' style='color:rgb(85,85,85)'>100金币</view>
+        </view>
+      </block> 
+    </block>
+  </view>
+</view>
+
+<template is="missionTem" data="{{missionList}}"></template>

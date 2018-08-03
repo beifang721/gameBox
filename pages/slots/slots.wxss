@@ -1,0 +1,13 @@
+/* pages/slots/slots.wxss */
+@import '../../components/fruitMachine/fruitMachine.wxss';
+page{
+  width: 100%;
+  height: 100%;
+}
+.slots-wrap{
+  width: 100%;
+  height: 100%;
+  background-image: url("https://caituwang.yisougame.cn/source_material/gameBox/slots/slots-BG.png");
+  background-size: 100% 100%;
+  position: relative;
+}

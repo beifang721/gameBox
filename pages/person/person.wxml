@@ -1,0 +1,77 @@
+<!--pages/person/person.wxml-->
+<import src="/template/missionTemplate.wxml"/> 
+<import src="/template/dialog.wxml"/> 
+<view class='header-bg'>
+  <image class='person-img-bg' src='/resources/images/person/person-BG.png'></image>
+  <view class='header-content'>
+    <image class='avatarURl' src='{{userInfo.avatarUrl}}'></image>
+    <view>
+      <view>
+        <text class='f36'>{{userInfo.nickName}}</text>
+        <image wx:if="{{userInfo.gender}}" class='gender' src='/resources/images/person/sex-{{userInfo.gender}}.png'></image>
+      </view>
+
+      <view class='view-bottom'>
+        <!-- <view class='grade-wrap'>
+          <image class='grade-icon' src='/resources/images/grade-1.png'></image>
+          <text class='f28' style='color:#41a2f8'>平民</text> 
+        </view> -->
+        <view class='gold-wrap'>
+          <image class='global-gold38' src='/resources/images/global-gold-icon.png'></image>
+          <text class='f24' style='color:rgb(34,34,34)'>1800</text>
+        </view>
+        <view class='redpacktet-wrap'>
+          <image class='globalredpacktet-icon' src='/resources/images/redpacktet-icon.png'></image>
+          <text class='f28'>{{userInfo.redpacketNum}}</text>
+        </view>
+        <image class='deposit-Btn' src='/resources/images/person/deposit-Btn.png'></image>
+        <!-- <text>昵称</text> <image class='gender' src='/resources/images/person/man.png'></image> -->
+      </view>
+
+    </view>
+  </view>
+  <!-- 水波动效 -->
+  <view class='water-ripple'>
+    <view class='outRound'>
+      <view class='centerRound'>
+        <view class='inRound'>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='max-btn-wrap'>
+  <view class='pub left' bindtap='goldListTap'>
+    <image class='gold-icon' src='/resources/images/person/person-gold.png'></image>
+    <view class='myGold-text'>
+        <view class='f30'>我的金币</view>
+        <view class='f24'>金币明细</view>
+    </view>
+  </view>
+  <view class='pub right' bindtap='turntableTap'>
+    <image class='turntable-icon' src='/resources/images/person/turntable-icon.png'></image>
+    <view class='myGold-text'>
+        <view class='f30'>金币抽奖</view>
+        <view class='f24'>更多惊喜</view>
+    </view>
+  </view>
+</view>
+
+<view class='swiperWrap'>
+  <swiper indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="rgb(255, 255, 255)" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<template is="missionTem" data="{{missionList}}"></template>
+<view class='more-gold f24 text-center' bindtap='moreMissionTap'>
+  获得更多金币
+</view>
+
+<template is="signdialog" data="{{missionList}}"></template>

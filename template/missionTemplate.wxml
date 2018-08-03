@@ -1,0 +1,25 @@
+<template name="missionTem">
+  <view class='mission-wrap'>
+    <view class='mission'>
+      <view class='mission-title clearfix'>
+        <text class='flotLeft f30'> 日常任务 \t\t(3/5) </text>
+        <text class='flotRight f28' style='color:rgb(30,113,187)'> 一键领取 </text>
+      </view>
+      <block wx:for="{{missionList}}" wx:key="misskey">
+        <view class='mission-item {{missionList.length==index+1?"list_mo":""}}'>
+          <view class='mission-left'>
+            <image class='mission-icon' src='/resources/images/person/mission-sign.png'></image>
+            <view class='left-b'>
+              <view class='f28'>签到</view>
+              <view class='f20' style='margin-top:8rpx'>300金币</view>
+            </view>
+          </view>
+          <view class='f30 reward-mission-btn miss-btnActive'>
+            签到
+          </view>
+
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

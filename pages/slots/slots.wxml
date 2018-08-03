@@ -1,0 +1,7 @@
+<!--pages/slots/slots.wxml-->
+<import src="../../components/fruitMachine/fruitMachine.wxml" />
+
+<view class="slots-wrap">
+ 
+  <template is = "fruitMachine" data="{{...machine}}"></template> 
+</view>

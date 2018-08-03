@@ -1,0 +1,93 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+page{
+  color: rgb(34, 34, 34);
+}
+.f20{
+  font-size: 20rpx;
+}
+.f22{
+  font-size: 22rpx;
+}
+.f24{
+  font-size: 24rpx;
+}
+.f26{
+  font-size: 26rpx;
+}
+.f28{
+  font-size: 28rpx;
+}
+.f30{
+  font-size: 30rpx;
+}
+.f32{
+  font-size: 32rpx;
+}
+.f34{
+  font-size: 34rpx;
+}
+.f36{
+  font-size: 36rpx;
+}
+.f38{
+  font-size: 38rpx;
+}
+.f40{
+  font-size: 40rpx;
+}
+.f48{
+  font-size: 48rpx;
+}
+
+.ml5{
+  margin-left: 5rpx;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+.global-gold38{
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.clearfix:after {
+  content: ".";
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.flotLeft{
+  float: left;
+}
+.flotRight{
+  float: right
+}
+.positionBtn{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.globalredpacktet-icon{
+  width: 31rpx;
+  height: 41rpx;
+  vertical-align: middle
+}
+.global-close-btn{
+  width: 48rpx;
+  height: 170rpx;
+}
