@@ -3,5 +3,5 @@
 
 <view class="slots-wrap">
  
-  <template is = "fruitMachine" data="{{...machine}}"></template> 
+  <template is = "fruitMachine" data="{{idx,active}}"></template> 
 </view>

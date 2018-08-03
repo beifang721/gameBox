@@ -28,15 +28,19 @@
   constructor (pageContext, opts) {
     this.page = pageContext
     this.len = opts.len || 8
-    this.ret = opts.ret
+    this.ret = opts.ret || 1
     this.speed = opts.speed
     this.isStart = false
     this.endCallBack = opts.callback
     this.page.start = this.start.bind(this)
+    console.log(this.page)
   }
 
   start () {
-
+    var ret1 = Math.ceil(Math.random() * 8);
+    this.ret = ret1;
+    // console.log("ret", ret);
+    console.log("ret", this.ret);
     let { idx, ret, len, speed, isStart } = this;
     if(isStart)return;
     this.isStart = true;
@@ -52,18 +56,18 @@
         } else if (count > range * len){
           speed = spd3;
         }
-        console.log(speed)
+        // console.log(speed)
         if(count != (range + 1) * len + ret ){
           interval(self)
         }else{
           self.isStart = false
-          self.endCallBack && self.endCallBack()
+          self.endCallBack && self.endCallBack(self.ret)
         }
 
         self.page.setData({
-          machine: {
+          // machine: {
             idx: count % 8  == 0 ? 8 : count % 8
-          }
+          // }
         })
         
       }, speed)
@@ -72,9 +76,9 @@
 
   reset () {
      this.page.setData({
-      machine: {
+      // machine: {
         idx: ''
-      }
+      // }
     })   
   }
 

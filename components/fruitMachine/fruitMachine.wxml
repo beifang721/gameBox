@@ -1,11 +1,12 @@
 <template name="fruitMachine">
   <view class="marquee_wp">
-    <!-- <image class='lamp' src='/resources/images/slots/lamp-1.png'></image> -->
-    <image class='lamp' src='/resources/images/slots/lamp-2.png'></image>
+
+    <image class='lamp' src='/resources/images/slots/lamp-{{active}}.png'></image>
+    <!-- <image class='lamp' src='/resources/images/slots/lamp-2.png'></image> -->
     <view class='item-wrap'>
       <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:key="key">
         <block wx:if="{{index<3}}">
-          <view class="marquee_item {{idx}} {{idx == 0 ? 'on' : ''}}">
+          <view class="marquee_item {{idx}} {{idx == index+1 ? 'on' : ''}}">
             {{index+1}}{{idx == index+1}}
             <!-- <image src="/assets/marquee_lottery1.png" /> -->
           </view>
@@ -51,7 +52,7 @@
       
     </view>
 
-    <block >
+    <block wx:if="{{idx==10}}">
         <view class="marquee_item {{idx == 1 ? 'on' : ''}}">
           1<!-- <image src="/assets/marquee_lottery1.png" /> -->
         </view>

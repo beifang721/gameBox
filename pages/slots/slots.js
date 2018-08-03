@@ -40,21 +40,36 @@ Page({
       }
 
       
-    ]
+    ],
+    active:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var bool = true;
+    setInterval(function(){
+      bool = !bool;
+      if(bool){
+        this.setData({
+          active: 2
+        })
+      }else{
+        this.setData({
+          active: 1
+        })
+      }
+    }.bind(this),300)
+
     this.fruitMachine = new FruitMachine(this, {
-      ret: 2, // 取值1～8
+      // ret: ret, // 取值1～8
       speed: 100,
-      callback: () => {
-        console.log("xxx")
+      callback: (data) => {
+        console.log("xxx",data)
         wx.showModal({
           title: '提示',
-          content: '恭喜您，中奖了',
+          content: '恭喜您，中奖了,' + data+'',
           showCancel: false,
           success: res => {
             this.fruitMachine.reset()
@@ -68,7 +83,7 @@ Page({
       }
     })
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
