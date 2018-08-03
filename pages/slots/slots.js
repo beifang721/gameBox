@@ -69,7 +69,7 @@ Page({
         console.log("xxx",data)
         wx.showModal({
           title: '提示',
-          content: '恭喜您，中奖了,' + data+'',
+          content: '恭喜您，中奖了,' +data+'',
           showCancel: false,
           success: res => {
             this.fruitMachine.reset()
