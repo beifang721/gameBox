@@ -1,6 +1,6 @@
 /* pages/person/person.wxss */
 @import "/template/missionTemplate.wxss"; 
-@import "/template/dialog.wxss"; 
+@import "/template/dialog/dialog.wxss"; 
 page{
   background-color: #f5f5f5;
 }

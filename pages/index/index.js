@@ -1,3 +1,4 @@
+import Authorize from '../../template/dialog/dialog.js';
 const testData = require("../../Api/testData.js");
 const app = getApp();
 Page({
@@ -26,11 +27,29 @@ Page({
       gameData: testData.gameData,
       userInfo:testData.userInfo
     })
-    console.log(testData)
+    console.log(testData);
+    
   },
-  loginBtn:function(){
-    console.log("游戏盒子")
-
+  onShow:function(){
+    new Authorize(this,app,function(res){
+      console.log("resres", res)
+    });
+    // var scopeInterval = setInterval(function () {
+    //   if (typeof app.globalData.userScope != "undefined") {
+    //     clearInterval(scopeInterval);
+    //     this.setData({
+    //       userScope: app.globalData.userScope
+    //     })
+    //   }
+    // }.bind(this), 300);
+  },
+  userInfoHandler: function (e) {
+    // if (e.detail.errMsg == "getUserInfo:ok") {
+    //   this.setData({
+    //     userScope: 1
+    //   })
+    //   app.openSetting();
+    // }
   }
 
 })

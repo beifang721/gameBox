@@ -1,7 +1,9 @@
 <!--pages/slots/slots.wxml-->
 <import src="../../components/fruitMachine/fruitMachine.wxml" />
-
 <view class="slots-wrap">
- 
-  <template is = "fruitMachine" data="{{idx,active}}"></template> 
+  <template is = "fruitMachine" data="{{expendGold,prizeArr,idx,marqueeOn}}"></template> 
+  <view class='footer'> 
+    <text class='f30'>每次抽奖消耗{{expendGold}}金币</text>
+    <text class='f24' bindtap='getGoldTap'>如何获得金币?</text>
+  </view>
 </view>

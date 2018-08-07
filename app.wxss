@@ -83,8 +83,8 @@ page{
   top: 0;
 }
 .globalredpacktet-icon{
-  width: 31rpx;
-  height: 41rpx;
+  width: 28rpx;
+  height: 38rpx;
   vertical-align: middle
 }
 .global-close-btn{

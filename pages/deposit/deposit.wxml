@@ -1,0 +1,16 @@
+<!--pages/deposit/deposit.wxml-->
+<view class='text-center'>
+  <image class='deposit' src='/resources/images/deposit.png'></image>
+  <view class='cur-amount text-center'>¥ 6.88{{}}</view>
+  <view class='f24' style='color:rgb(153,153,153)'>账户余额</view>
+
+  <input class='dep-input' type="digit" placeholder-class="phcolor" placeholder='输入提现金额'>
+  
+    <text>元</text> 
+  </input>
+  
+  <view class='suoming f20'> (金额将提现至微信零钱,满{{targetAmount}}元可提现)</view>
+  
+  <view class='deposit-btn on'>确认提现</view>
+
+</view>

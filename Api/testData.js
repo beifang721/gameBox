@@ -81,7 +81,7 @@ var findData = [
 
 var userInfo = {
   userId:123,              
-  avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIaXyNlavs0YBSmHVC3ECJBlAziciadN9BlnmKMIpWu2Q3L0BmOkX6T7Xj85YMx7loLMajtEibLQQjpA/132",
+avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIaXyNlavs0YBSmHVC3ECJBlAziciadN9BlnmKMIpWu2Q3L0BmOkX6T7Xj85YMx7loLMajtEibLQQjpA/132",
   nickName:"北方FM",
   city:"郑州",
   gold:"1000",

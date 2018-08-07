@@ -1,0 +1,21 @@
+<template name="openRedTempalte">
+  <view class='red-dialog'  wx:if="{{redpacketColse==0}}">
+    <view class='openred-wrap'>
+      <image class='global-close-btn red-close' bindtap='closeBtn' src='/resources/images/global-sign-close.png'></image>
+      <view class='openred-BG'>
+        <view class='red-Rmb f40 text-center'>
+          + {{redpacketAmount}}元
+        </view>
+        <view class='progress_max'>
+          <view class='progress_min' style='width:{{(curAmount)*100<6?6:(curAmount/targetAmount)*100}}%'>
+            <view>
+              <text class='f20'>¥{{curAmount}}/¥{{targetAmount}} </text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</template>

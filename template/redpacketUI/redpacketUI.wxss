@@ -1,0 +1,63 @@
+/* 打开红包dialog */
+.red-dialog{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.openred-wrap{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.openred-BG{
+  position: relative;
+  width: 378rpx;
+  height: 368rpx;
+  background-image: url("https://caituwang.yisougame.cn/source_material/gameBox/open-red-BG.png");
+  background-size: 100% 100%;
+  z-index: 200;
+  overflow: hidden;
+}
+.red-close{
+  position: absolute;
+  right:-4rpx;
+  top: -80rpx;
+  z-index: 100;
+}
+.red-Rmb{
+  color: rgb(219, 46, 32);
+  margin: 55rpx 0;
+}
+.progress_max{
+  width: 324rpx;
+  height: 36rpx;
+  border-radius: 50px;
+  box-shadow: 0 0 5px 0px #d6d6d6;
+  padding: 0 5rpx;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  position: absolute;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress_min{
+  border-radius: 50px;
+  height: 30rpx;
+  width: 100px;
+  background-color: #fec900;
+  box-shadow: 0px 0px 30rpx  #fff inset;
+  font-size: 24rpx;
+  color: #fefefe;
+}
+.progress_min view{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+} 

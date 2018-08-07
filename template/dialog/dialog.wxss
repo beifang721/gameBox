@@ -35,6 +35,13 @@
   height: 70rpx;
   line-height: 70rpx;
   border-radius: 3px;
+  position: relative;
+}
+.positionBtn{
+   height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+  background-color: #42a2f8
 }
 /* 签到弹窗 start */
 .sign-bg{

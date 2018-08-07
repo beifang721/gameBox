@@ -33,13 +33,11 @@
     this.isStart = false
     this.endCallBack = opts.callback
     this.page.start = this.start.bind(this)
-    console.log(this.page)
   }
 
   start () {
-    var ret1 = Math.ceil(Math.random() * 8);
-    this.ret = ret1;
-    // console.log("ret", ret);
+    var retRandom = Math.ceil(Math.random() * 8);
+    this.ret = retRandom;
     console.log("ret", this.ret);
     let { idx, ret, len, speed, isStart } = this;
     if(isStart)return;
@@ -56,7 +54,6 @@
         } else if (count > range * len){
           speed = spd3;
         }
-        // console.log(speed)
         if(count != (range + 1) * len + ret ){
           interval(self)
         }else{
@@ -65,9 +62,7 @@
         }
 
         self.page.setData({
-          // machine: {
             idx: count % 8  == 0 ? 8 : count % 8
-          // }
         })
         
       }, speed)
@@ -75,10 +70,8 @@
   }
 
   reset () {
-     this.page.setData({
-      // machine: {
-        idx: ''
-      // }
+    this.page.setData({
+      idx: ''
     })   
   }
 

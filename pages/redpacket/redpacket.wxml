@@ -1,0 +1,11 @@
+<!--pages/redpacket/redpacket.wxml-->
+<import src="/template/redpacketUI/redpacketUI.wxml"/> 
+<view class='red-box-BG'>
+  <view class='item-wrap-bg'>
+    <block wx:for="{{9}}" wx:key="redKey">
+      <image class='lock-redPacket' src='/resources/images/redpacket/lock-redPacket.png'></image>
+    </block>
+  </view>
+</view>
+
+<template is="openRedTempalte" data="{{...BoxConfig,redpacketColse}}"></template>

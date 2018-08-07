@@ -1,4 +1,4 @@
-<import src="/template/dialog.wxml"/> 
+<import src="/template/dialog/dialog.wxml"/> 
 <view class='header-flex'>
   <view class='left-wrap ml15'>
     <text class='f26'>欢迎</text>
@@ -51,4 +51,4 @@
   <view class='f24'>我是有底线的</view>
 </view>
 
-<template  is="logindialog" ></template>
+<template  is="logindialog" data="{{userScope}}"></template>

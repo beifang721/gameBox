@@ -1,0 +1,53 @@
+/* pages/deposit/deposit.wxss */
+.deposit{
+  width: 381rpx;
+  height: 312rpx;
+  display: block;
+  margin:15rpx auto;
+}
+.cur-amount{
+  margin: 35rpx 0 10rpx 0; 
+  color: rgb(2, 144, 212);
+  font-size: 60rpx;
+  font-weight: 700
+}
+.dep-input{
+  width: 400rpx;
+  height: 70rpx;
+  padding: 10rpx 20rpx;
+  border: 1px solid #0272d4;
+  border-radius: 3px;
+  background-color: #d6f9fd;
+  color: rgb(93, 151, 193);
+  font-size: 30rpx;
+  text-align: left;
+  position: relative;
+  margin: 50rpx auto 10rpx;
+}
+.phcolor{
+  color: rgb(93, 151, 193);
+}
+.dep-input text{
+  color: #5bb4d2;
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100
+}
+.suoming{
+  width: 440rpx;
+  margin: auto;
+  text-align: left;
+  color: rgba(5, 151, 193,0.8)
+}
+.deposit-btn{
+  width: 440rpx;
+  height: 92rpx;
+  font-size: 39rpx;
+  color: #fff;
+  background-color: #0272d4;
+  line-height: 92rpx;
+  border-radius: 50rpx;
+  margin:90rpx auto 0;
+} 

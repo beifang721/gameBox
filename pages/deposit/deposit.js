@@ -1,11 +1,11 @@
-// pages/lottery/lottery.js
+// pages/deposit/deposit.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    targetAmount:30
   },
 
   /**

@@ -7,41 +7,40 @@ Page({
    */
   data: {
     prizeArr:[{
-        prizeName:"现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName:"现金20元",
+        prizeImg: "/resources/images/slots/redpacket.png"
       },
       {
-        prizeName: "现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName: "金币100",
+        prizeImg: "/resources/images/slots/gold.png"
       },
       {
-        prizeName: "现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName: "金币50",
+        prizeImg: "/resources/images/slots/gold.png"
       },
       {
-        prizeName: "现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName: "IWATCH",
+        prizeImg: "/resources/images/slots/biao.png"
       },
       {
-        prizeName: "现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName: "金币200",
+        prizeImg: "/resources/images/slots/gold.png"
       },
       {
-        prizeName: "现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName: "玩偶",
+        prizeImg: "/resources/images/slots/wanou.png"
       },
       {
-        prizeName: "现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName: "金币300",
+        prizeImg: "/resources/images/slots/gold.png"
       },
       {
-        prizeName: "现金红包",
-        prizeImg: "resources/images/slots/redpacket.png"
+        prizeName: "iPhone X",
+        prizeImg: "/resources/images/slots/iPhone.png"
       }
-
-      
     ],
-    active:1
+    expendGold:50,
+    marqueeOn:1
   },
 
   /**
@@ -53,14 +52,14 @@ Page({
       bool = !bool;
       if(bool){
         this.setData({
-          active: 2
+          marqueeOn: 2
         })
       }else{
         this.setData({
-          active: 1
+          marqueeOn: 1
         })
       }
-    }.bind(this),300)
+    }.bind(this),500)
 
     this.fruitMachine = new FruitMachine(this, {
       // ret: ret, // 取值1～8
@@ -69,7 +68,7 @@ Page({
         console.log("xxx",data)
         wx.showModal({
           title: '提示',
-          content: '恭喜您，中奖了,' +data+'',
+          content: '恭喜您，' + this.data.prizeArr[data-1].prizeName+'',
           showCancel: false,
           success: res => {
             this.fruitMachine.reset()
@@ -82,6 +81,15 @@ Page({
         })
       }
     })
+
+    var prizeArr = this.data.prizeArr.splice(8, 0, "1");
+   
+    this.setData({
+      prizeArr: this.data.prizeArr
+    })
+  },
+  getGoldTap:function(){
+
   },
   
   /**

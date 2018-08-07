@@ -1,0 +1,35 @@
+/* pages/redpacket/redpacket.wxss */
+@import "/template/redpacketUI/redpacketUI.wxss";
+page{
+  width: 100%;
+  height: 100%;
+}
+.red-box-BG{
+  width: 100%;
+  height: 100%;
+  background-image: url("https://caituwang.yisougame.cn/source_material/gameBox/redpacket-BG.png");
+  background-size: 100% 100%;
+  position: relative;
+}
+.item-wrap-bg{
+  position: absolute;
+  left: 50%;
+  padding:20rpx 10rpx;
+  width: 676rpx;
+  height: 623rpx;
+  margin-left: -348rpx;
+  bottom: 130rpx;
+  background-image: url("https://caituwang.yisougame.cn/source_material/gameBox/red-item-BG.png");
+  background-size: 100% 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  /* align-items: stretch */
+}
+.lock-redPacket{
+  width: 198rpx;
+  height: 172rpx;
+}
+

@@ -1,26 +1,23 @@
-// pages/game/game.js
-import FruitMachine from "../../components/fruitMachine/fruitMachine.js"
+// pages/redpacket/redpacket.js
+import redpacketUI from '../../template/redpacketUI/redpacketUI.js';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    redArr:[
+
+    ],
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    new FruitMachine(this, {
-      len: 9, //宫格个数
-      ret: 9, //抽奖结果对应值1～9   
-      speed: 100,  // 速度值
-      callback: (idx, award) => {
-        //结束回调， 参数对应宫格索引，对应奖项    
-      }
-    })
+    new redpacketUI(this,app);
   },
 
   /**

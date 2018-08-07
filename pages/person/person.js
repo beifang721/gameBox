@@ -1,4 +1,5 @@
 // pages/person/person.js
+import Authorize from '../../template/dialog/dialog.js';
 const testData = require("../../Api/testData.js");
 const app = getApp();
 Page({
@@ -25,23 +26,34 @@ Page({
     that.setData({
       gameData: testData.gameData,
       userInfo: testData.userInfo
-    })
+    });
   },
-
+  onShow: function () {
+    new Authorize(this, app);
+    // var scopeInterval = setInterval(function () {
+    //   console.log(typeof app.globalData.userScope)
+    //   if (typeof app.globalData.userScope != "undefined") {
+    //     clearInterval(scopeInterval);
+    //     this.setData({
+    //       userScope: app.globalData.userScope
+    //     })
+    //   }
+    // }.bind(this), 300);
+  },
+  // userInfoHandler: function (e) {
+  //   if (e.detail.errMsg == "getUserInfo:ok") {
+  //     this.setData({
+  //       userScope: 1
+  //     })
+  //     app.openSetting();
+  //   }
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -54,11 +66,18 @@ Page({
     })
   },
   turntableTap:function(){
-
+    wx.navigateTo({
+      url: '/pages/slots/slots',
+    })
   },
   moreMissionTap:function(){
     wx.navigateTo({
       url: '/pages/mission/mission',
+    })
+  },
+  depositTap:function(){
+    wx.navigateTo({
+      url: '/pages/deposit/deposit',
     })
   },
   signBtn:function(){
