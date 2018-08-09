@@ -15,10 +15,8 @@
     </view>
     <view class='right-item'>
       <image class='globalredpacktet-icon' src='/resources/images/redpacktet-icon.png'></image>
-      <view>{{userInfo.redpacketNum}}</view>
+      <view>{{amountConfig.curAmount}}</view>
     </view>
-    
-    
   </view>
 </view>
 <view style='height:92rpx'>
@@ -33,15 +31,15 @@
   </swiper>
 </view>
 
-<block wx:for="{{gameData}}" wx:key="gameKey" wx:for-item="gameData">
+<block wx:for="{{mainGameData}}" wx:key="gameKey" wx:for-item="gameData">
   <view class='game-item-wrap'>
     <view class='game-title f36'>{{gameData.gameTitle}}</view>
     <view class='game-list'>
       <block wx:for="{{gameData.gameList}}" wx:key="listKey" wx:for-item="listData">
         <view class='game-item'>
-          <image src='/resources/images/homeUI/gun.png'></image>
-          <view class='f26 text-center'>全民猜猜图</view>
-          <view class='p_2 f22 text-center'>12万人在玩</view>
+          <image src='{{listData.miniAppImgUrl}}'></image>
+          <view class='f26 text-center'>{{listData.miniAppName}}</view>
+          <view class='p_2 f22 text-center'>{{listData.playUserNum}}</view>
         </view>
       </block>  
     </view>
@@ -52,3 +50,5 @@
 </view>
 
 <template  is="logindialog" data="{{userScope}}"></template>
+
+<template  is="signdialog" data="{{...gameBoxConfig,isTodaySgin,signAwardIndex,isDialogClose,signBtnOn}}"></template>

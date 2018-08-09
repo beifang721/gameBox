@@ -2,21 +2,49 @@
   <view class='mission-wrap'>
     <view class='mission'>
       <view class='mission-title clearfix'>
-        <text class='flotLeft f30'> 日常任务 \t\t(3/5) </text>
+        <text class='flotLeft f30'> 日常任务 \t\t(3/{{missionConfig.length+1}}) </text>
         <text class='flotRight f28' style='color:rgb(30,113,187)'> 一键领取 </text>
       </view>
-      <block wx:for="{{missionList}}" wx:key="misskey">
+      <view class='mission-item'>
+        <view class='mission-left'>
+          <image class='mission-icon' src='/resources/images/person/mission-sign.png'></image>
+          <view class='left-b'>
+            <view class='f28'>签到</view>
+            <view class='f20' style='margin-top:8rpx'>300金币</view>
+          </view>
+        </view>
+        <block wx:if="{{isTodaySgin==0}}">
+          <view class='f30 reward-mission-btn'  bindtap="signBtnPage">签到</view>
+        </block>
+        <block wx:elif="{{isTodaySgin==1}}">
+          <view class='f30 reward-mission-btn miss-btnActive'>已签到</view>
+        </block>
+          
+      </view>
+      <block wx:for="{{missionConfig}}" wx:key="misskey">
         <view class='mission-item {{missionList.length==index+1?"list_mo":""}}'>
           <view class='mission-left'>
-            <image class='mission-icon' src='/resources/images/person/mission-sign.png'></image>
+            <image class='mission-icon' src='/resources/images/person/mission-{{index}}.png'></image>
             <view class='left-b'>
-              <view class='f28'>签到</view>
+              <view class='f28'>{{item.missionNmae}}</view>
               <view class='f20' style='margin-top:8rpx'>300金币</view>
             </view>
           </view>
-          <view class='f30 reward-mission-btn miss-btnActive'>
-            签到
-          </view>
+          <block wx:if="{{item.isFinished&&item.isReceive}}">
+            <view class='f30 reward-mission-btn miss-btnActive'>
+              已领取
+            </view>
+          </block>
+          <block wx:elif="{{item.isFinished}}">
+            <view class='f30 reward-mission-btn' data-missionId='{{item.id}}' bindtap='receiveTap'>
+              待领取
+            </view>
+          </block>
+          <block wx:else>
+            <view class='f30 reward-mission-btn'>
+              {{item.missionParam1}} / {{item.missionParam2}}
+            </view>
+          </block>
 
         </view>
       </block>

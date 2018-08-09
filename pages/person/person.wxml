@@ -1,6 +1,7 @@
 <!--pages/person/person.wxml-->
 <import src="/template/missionTemplate.wxml"/> 
 <import src="/template/dialog/dialog.wxml"/> 
+<scroll-view style='height:{{windowHeight}}px' scroll-y="true">
 <view class='header-bg'>
   <image class='person-img-bg' src='/resources/images/person/person-BG.png'></image>
   <view class='header-content'>
@@ -18,11 +19,11 @@
         </view> -->
         <view class='gold-wrap'>
           <image class='global-gold38' src='/resources/images/global-gold-icon.png'></image>
-          <text class='f24' style='color:rgb(34,34,34)'>1800</text>
+          <text class='f24' style='color:rgb(34,34,34)'>{{userInfo.gold}}</text>
         </view>
         <view class='redpacktet-wrap'>
           <image class='globalredpacktet-icon' src='/resources/images/redpacktet-icon.png'></image>
-          <text class='f28'>{{userInfo.redpacketNum}}</text>
+          <text class='f28'>{{amountConfig.curAmount}}</text>
         </view>
         <image class='deposit-Btn' bindtap='depositTap' src='/resources/images/person/deposit-Btn.png'></image>
         <!-- <text>昵称</text> <image class='gender' src='/resources/images/person/man.png'></image> -->
@@ -69,9 +70,11 @@
   </swiper>
 </view>
 
-<template is="missionTem" data="{{missionList}}"></template>
+<template is="missionTem" data="{{missionConfig,isTodaySgin}}"></template>
 <view class='more-gold f24 text-center' bindtap='moreMissionTap'>
   获得更多金币
 </view>
 <template  is="logindialog" data="{{userScope}}"></template>
-<template  is="signdialog" data="{{missionList}}"></template>
+
+</scroll-view>
+<template  is="signdialog" data="{{...gameBoxConfig,isTodaySgin,signAwardIndex,isDialogClose,signBtnOn}}"></template>

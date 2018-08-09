@@ -1,6 +1,7 @@
 // pages/person/person.js
 import Authorize from '../../template/dialog/dialog.js';
 const testData = require("../../Api/testData.js");
+const ysApi = require("../../Api/ysApi.js");
 const app = getApp();
 Page({
 
@@ -14,8 +15,7 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    duration: 500,
-    missionList: ["a","b",3,6,5]
+    duration: 500
   },
 
   /**
@@ -23,36 +23,32 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    that.setData({
-      gameData: testData.gameData,
-      userInfo: testData.userInfo
-    });
   },
   onShow: function () {
     new Authorize(this, app);
-    // var scopeInterval = setInterval(function () {
-    //   console.log(typeof app.globalData.userScope)
-    //   if (typeof app.globalData.userScope != "undefined") {
-    //     clearInterval(scopeInterval);
-    //     this.setData({
-    //       userScope: app.globalData.userScope
-    //     })
-    //   }
-    // }.bind(this), 300);
+    app.setPageData(this);
+    var mySetInterval = setInterval(function () {
+      if (app.loginIsSuccess) {
+        clearInterval(mySetInterval);
+        ysApi.getMissionConfig().then(function(res){
+          this.setData({
+            missionConfig:res
+          })
+        }.bind(this));
+      }
+    }.bind(this), 200);
   },
-  // userInfoHandler: function (e) {
-  //   if (e.detail.errMsg == "getUserInfo:ok") {
-  //     this.setData({
-  //       userScope: 1
-  //     })
-  //     app.openSetting();
-  //   }
-  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    wx.getSystemInfo({
+      success: function (res) {
+        this.setData({
+          windowHeight: res.windowHeight
+        })
+      }.bind(this)
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -80,8 +76,27 @@ Page({
       url: '/pages/deposit/deposit',
     })
   },
-  signBtn:function(){
-    console.log("签到")
+  receiveTap:function(e){ //领取任务奖励
+    var missionid = e.currentTarget.dataset.missionid;
+    ysApi.receiveMissionAward(missionid).then(function(res){
+      app.globalData.userInfo.gold = app.globalData.userInfo.gold+res;
+      var gold = "userInfo.gold";
+      this.setData({
+        [gold]: app.globalData.userInfo.gold+res
+      })
+      //测试用
+      testData.missionConfig[missionid - 1].isFinished = true;
+      testData.missionConfig[missionid - 1].isReceive = true;
+      return ysApi.getMissionConfig();
+    }.bind(this)).catch(function(errMsg){
+
+    }).then(function (res) {
+      this.setData({
+        missionConfig: res
+      })
+    }.bind(this)).catch(function (errMsg) {
+
+    });
   },
   closeSign:function(){
 

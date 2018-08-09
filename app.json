@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/redpacket/redpacket",
     "pages/index/index",
+    "pages/person/person",
+    "pages/find/find",
+    "pages/redpacket/redpacket",
     "pages/deposit/deposit",
     "pages/slots/slots",
-    "pages/person/person",
     "pages/mission/mission",
-    "pages/goldList/goldList",
-    "pages/find/find"
+    "pages/goldList/goldList"
   ],
   "window": {
     "backgroundTextStyle": "light",

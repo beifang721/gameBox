@@ -94,9 +94,9 @@
   position:absolute;
   bottom:20rpx;
   width: 442rpx;
-  height: 92rpx;
+  height: 80rpx;
   text-align: center;
-  line-height: 92rpx;
+  line-height: 80rpx;
   color: #fff;
   background-color: #0272d4;
   border-radius: 50px;

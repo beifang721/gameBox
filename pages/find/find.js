@@ -1,4 +1,5 @@
 // pages/find/find.js
+const app = getApp();
 Page({
 
   /**
@@ -12,7 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var mySetInterval_B = setInterval(function () {
+      if (app.loginIsSuccess) {
+        clearInterval(mySetInterval_B);
+        this.setData({
+          findGameData: app.globalData.findGameData
+        })
+      }
+    }.bind(this), 200);
   },
 
   /**
