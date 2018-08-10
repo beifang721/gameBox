@@ -11,8 +11,8 @@ class Authorize {
     this.getUserScope();
     this.page.userInfoHandler = this.userInfoHandler.bind(this);//获取用户信息点击
     this.page.closeSign = this.closeSign.bind(this);
-    this.page.signBtn = this.signBtn.bind(this);
-    this.page.signBtnPage = this.signBtnPage.bind(this);
+    this.page.signBtn = this.signBtn.bind(this); //弹窗的签到按钮点击事件
+    this.page.signBtnPage = this.signBtnPage.bind(this);//页面的点击事件
     this.page.setData({
       signBtnOn:0  //是否点击签到按钮
     })
@@ -65,9 +65,12 @@ class Authorize {
     this.app.globalData.signAwardIndex++;
     this.app.globalData.isTodaySgin = 1;
     this.page.setData({
-      isTodaySgin: 1
+      isTodaySgin: 1,
+      signAwardIndex: this.page.data.signAwardIndex + 1
     })
   }
+
+  
 
 }
 

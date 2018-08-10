@@ -64,13 +64,13 @@
   <swiper indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="rgb(255, 255, 255)" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:key="key">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
+        <image src="{{item}}" class="slide-image" width="355" height="150" bindtap='redpacktetPage'/>
       </swiper-item>
     </block>
   </swiper>
 </view>
 
-<template is="missionTem" data="{{missionConfig,isTodaySgin}}"></template>
+<template is="missionTem" data="{{missionConfig,isTodaySgin,curTodySignIndex,...gameBoxConfig}}"></template>
 <view class='more-gold f24 text-center' bindtap='moreMissionTap'>
   获得更多金币
 </view>

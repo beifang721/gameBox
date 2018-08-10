@@ -1,5 +1,6 @@
 // pages/redpacket/redpacket.js
 import redpacketUI from '../../template/redpacketUI/redpacketUI.js';
+const ysApi = require("../../Api/ysApi.js");
 const app = getApp();
 Page({
 
@@ -18,8 +19,8 @@ Page({
    */
   onLoad: function (options) {
     new redpacketUI(this,app);
+    app.setPageData(this);
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

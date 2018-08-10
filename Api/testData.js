@@ -229,31 +229,31 @@ var goldDetaiList = {
   expendGoldList: [{
     time: "2017 - 07 - 19  15: 21: 36",
     recordName: "签到",
-    recordGold: "100金币"
+    recordGold: "200金币"
   }, {
     time: "2017 - 07 - 19  15: 21: 36",
     recordName: "签到",
-    recordGold: "100金币"
+    recordGold: "300金币"
   }, {
     time: "2017 - 07 - 19  15: 21: 36",
     recordName: "签到",
-    recordGold: "100金币"
+    recordGold: "400金币"
   }, {
     time: "2017 - 07 - 19  15: 21: 36",
     recordName: "签到",
-    recordGold: "100金币"
+    recordGold: "500金币"
   }, {
     time: "2017 - 07 - 19  15: 21: 36",
     recordName: "签到",
-    recordGold: "100金币"
+    recordGold: "600金币"
   }, {
     time: "2017 - 07 - 19  15: 21: 36",
     recordName: "签到",
-    recordGold: "100金币"
+    recordGold: "700金币"
   }, {
     time: "2017 - 07 - 19  15: 21: 36",
     recordName: "签到",
-    recordGold: "100金币"
+    recordGold: "800金币"
   }]
 }
 
@@ -309,37 +309,37 @@ var gameBoxConfig = {
   loginAward: [{
       id: 1,
       dayIndex: 1,
-      award: 100
+      award: "100金币"
     },
     {
       id: 2,
       dayIndex: 2,
-      award: 100
+      award: "200金币"
     },
     {
       id: 3,
       dayIndex: 3,
-      award: 100
+      award: "300金币"
     },
     {
       id: 4,
       dayIndex: 4,
-      award: 100
+      award: "400金币"
     },
     {
       id: 5,
       dayIndex: 5,
-      award: 100
+      award: "500金币"
     },
     {
       id: 6,
       dayIndex: 6,
-      award: 100
+      award: "600金币"
     },
     {
       id: 7,
       dayIndex: 7,
-      award: 100
+      award: "700金币"
     }
   ],
   bannerArr: [{
@@ -372,6 +372,11 @@ var amountConfig = {
   curAmount: 13.2
 }
 
+var redpacketNum = {
+  redpacketAmount:3.88,
+  curAmount:15.5
+}
+
 module.exports = {
   userInfo: userInfo,
   mainGameData: mainGameData,
@@ -381,5 +386,6 @@ module.exports = {
   prizeData: prizeData,
   lotteryResult: lotteryResult,
   gameBoxConfig: gameBoxConfig, 
-  amountConfig: amountConfig
+  amountConfig: amountConfig,
+  redpacketNum: redpacketNum
 }

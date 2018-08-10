@@ -307,7 +307,7 @@ function upDataLoginAwardRecord() {
 function getGoldDetail() {
   var promise = new Promise(function (resolve, reject) {
     if (testOrformalData == 0) {
-      return resolve(0, "");
+      return resolve(testData.goldDetaiList);
     }
     requestFn({
       urlName: 'PublicNumber/mainGameData',
@@ -332,7 +332,7 @@ function getGoldDetail() {
 function getLotteryResult() {
   var promise = new Promise(function (resolve, reject) {
     if (testOrformalData == 0) {
-      return resolve(0, "");
+      return resolve(testData.lotteryResult);
     }
     requestFn({
       urlName: 'PublicNumber/mainGameData',
@@ -382,7 +382,7 @@ function upLoadFormId() {
 function receiveRedpacket() {
   var promise = new Promise(function (resolve, reject) {
     if (testOrformalData == 0) {
-      return resolve(0, "");
+      return resolve(testData.redpacketNum);
     }
     requestFn({
       urlName: 'PublicNumber/mainGameData',

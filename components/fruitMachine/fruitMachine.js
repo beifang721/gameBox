@@ -14,6 +14,7 @@
  *    }
  *  })
  */
+const ysApi = require("../../Api/ysApi.js");
  class FruitMachine {
 
   /**
@@ -36,37 +37,47 @@
   }
 
   start () {
-    var retRandom = Math.ceil(Math.random() * 8);
-    this.ret = retRandom;
-    console.log("ret", this.ret);
-    let { idx, ret, len, speed, isStart } = this;
-    if(isStart)return;
-    this.isStart = true;
-    let range = Math.floor(Math.random()*2 + 2);
-    let count = 0;
-    let spd2 = speed*2;
-    let spd3 = speed*3;
-    !(function interval(self){
-      setTimeout( () => {
-        count++
-        if (count > range * len - 5 && count < range * len){
-          speed = spd2;
-        } else if (count > range * len){
-          speed = spd3;
-        }
-        if(count != (range + 1) * len + ret ){
-          interval(self)
-        }else{
-          self.isStart = false
-          self.endCallBack && self.endCallBack(self.ret)
-        }
+    ysApi.getLotteryResult().then((res)=>{
+      let retRandom = Math.ceil(Math.random() * 8);
+      this.ret = res.prizeIndex+1;
+      console.log("ret", this.ret);
+      console.log(res)
+      let { idx, ret, len, speed, isStart } = this;
+      if (isStart) return;
+      this.isStart = true;
+      let range = Math.floor(Math.random() * 2 + 2);
+      let count = 0;
+      let spd2 = speed * 2;
+      let spd3 = speed * 3;
+      !(function interval(self) {
+        setTimeout(() => {
+          count++
+          if (count > range * len - 5 && count < range * len) {
+            speed = spd2;
+          } else if (count > range * len) {
+            speed = spd3;
+          }
+          if (count != (range + 1) * len + ret) {
+            interval(self)
+          } else {
+            self.isStart = false
+            self.endCallBack && self.endCallBack(self.ret)
+          }
 
-        self.page.setData({
-            idx: count % 8  == 0 ? 8 : count % 8
+          self.page.setData({
+            idx: count % 8 == 0 ? 8 : count % 8
+          })
+
+        }, speed)
+      })(this);
+    }).catch((errMag)=>{
+        wx.showMsg({
+          title: '提示',
+          content: errMsg,
         })
-        
-      }, speed)
-    })(this)
+    })
+    
+    
   }
 
   reset () {

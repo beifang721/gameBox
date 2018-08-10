@@ -10,7 +10,7 @@
           <image class='mission-icon' src='/resources/images/person/mission-sign.png'></image>
           <view class='left-b'>
             <view class='f28'>签到</view>
-            <view class='f20' style='margin-top:8rpx'>300金币</view>
+            <view class='f20' style='margin-top:8rpx'>{{loginAward[curTodySignIndex].award}}</view>
           </view>
         </view>
         <block wx:if="{{isTodaySgin==0}}">

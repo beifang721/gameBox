@@ -117,6 +117,7 @@ App({
           //获取配置信息成功  
           let signDate = that.globalData.userInfo.loginDate;
           that.globalData.signAwardIndex = that.globalData.userInfo.loginAwardIndex;
+          that.globalData.curTodySignIndex = that.globalData.userInfo.loginAwardIndex;
           that.globalData.isDialogClose = 1;//签到弹窗
           if (utils.getCurDate() == utils.timestampToTime(signDate)){
             that.globalData.isTodaySgin = 1;
@@ -131,7 +132,7 @@ App({
 
     }
   },
-  setPageData:function(that_){  //初始化页面数据
+  setPageData:function(that_,call){  //初始化页面数据
     var mySetInterval_A = setInterval(function () {
       if (this.loadIsFinished) {
         clearInterval(mySetInterval_A);
@@ -143,11 +144,12 @@ App({
           amountConfig: this.globalData.amountConfig,
           isTodaySgin: this.globalData.isTodaySgin,
           signAwardIndex: this.globalData.signAwardIndex,
-          isDialogClose: this.globalData.isDialogClose
+          isDialogClose: this.globalData.isDialogClose,
+          curTodySignIndex: this.globalData.curTodySignIndex
         })
+        return typeof call == "function" && call();
       }
     }.bind(this), 200);
   },
-  globalData: {
-  }
+  globalData: {}
 })

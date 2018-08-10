@@ -1,5 +1,6 @@
 // pages/goldList/goldList.js
-var app = getApp();
+const app = getApp();
+const ysApi = require("../../Api/ysApi.js");
 Page({
 
   /**
@@ -14,12 +15,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    this.globalData = app.globalData;
-    
-    that.setData({
-      userInfo:that.globalData.userInfo
-    })
+    app.setPageData(this,function(){
+      ysApi.getGoldDetail().then(function(res){
+        console.log(res);
+        this.setData({
+          getGoldList:res.getGoldList,
+          expendGoldList: res.expendGoldList
+        })
+      }.bind(this)).catch(function(errMsg){})
+    }.bind(this));
   },
 
   /**
@@ -32,7 +36,6 @@ Page({
     query.exec(function (res) {
       wx.getSystemInfo({
         success: function (d) {
-          
           var scrollHeight = d.windowHeight - 75 - res[0].height;
           console.log(res[0].height);
           console.log(scrollHeight)

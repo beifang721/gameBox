@@ -26,17 +26,25 @@ Page({
   },
   onShow: function () {
     new Authorize(this, app);
-    app.setPageData(this);
-    var mySetInterval = setInterval(function () {
-      if (app.loginIsSuccess) {
-        clearInterval(mySetInterval);
-        ysApi.getMissionConfig().then(function(res){
-          this.setData({
-            missionConfig:res
-          })
-        }.bind(this));
-      }
-    }.bind(this), 200);
+    app.setPageData(this,function(){
+      ysApi.getMissionConfig().then(function (res) {  //获取任务配置
+        this.setData({
+          missionConfig: res
+        })
+      }.bind(this));
+
+      ysApi.getAmountConfig().then(function (res) {  //获取用户当前金额
+        app.globalData.amountConfig = res;
+        this.setData({
+          amountConfig: res
+        })
+      }.bind(this));
+    }.bind(this));
+    // var mySetInterval = setInterval(function () {
+    //   if (app.load) {
+    //     clearInterval(mySetInterval);
+    //   }
+    // }.bind(this), 200);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -76,13 +84,19 @@ Page({
       url: '/pages/deposit/deposit',
     })
   },
+  redpacktetPage:function(){
+    wx.navigateTo({
+      url: '/pages/redpacket/redpacket',
+    })
+  },
   receiveTap:function(e){ //领取任务奖励
     var missionid = e.currentTarget.dataset.missionid;
     ysApi.receiveMissionAward(missionid).then(function(res){
+      console.log(app.globalData.userInfo.gold,res)
       app.globalData.userInfo.gold = app.globalData.userInfo.gold+res;
       var gold = "userInfo.gold";
       this.setData({
-        [gold]: app.globalData.userInfo.gold+res
+        [gold]: this.data.userInfo.gold+res
       })
       //测试用
       testData.missionConfig[missionid - 1].isFinished = true;

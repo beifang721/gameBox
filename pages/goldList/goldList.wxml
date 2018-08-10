@@ -22,25 +22,25 @@
 
 <scroll-view class='scroll-wrap' scroll-y="true" style='height:{{scrollHeight}}px;'>
   <block wx:if="{{currentTab==0}}">
-    <view class='item' wx:for="{{[1,2,3,5,65,6,6,6]}}" wx:key="getkey">
+    <view class='item' wx:for="{{getGoldList}}" wx:key="getkey">
       <view class='item-left'>
         <view class='f30'>签到</view>
-        <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>2018-07-19 15:31:02</view>
+        <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>{{item.time}}</view>
       </view>
       <view class='item-right f30'>
-        300金币
+        {{item.recordGold}}
       </view>
     </view>
   </block>
 
   <block wx:if="{{currentTab==1}}">
-    <view class='item'  wx:for="{{[1,2,3,5,6]}}" wx:key="xFkey">
+    <view class='item'  wx:for="{{expendGoldList}}" wx:key="xFkey">
       <view class='item-left'>
         <view class='f30'>签到123</view>
-        <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>2018-07-19 15:31:02</view>
+        <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>{{item.time}}</view>
       </view>
       <view class='item-right f30'>
-        -300金币
+        -{{item.recordGold}}
       </view>
     </view>
   </block>

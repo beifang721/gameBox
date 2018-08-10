@@ -3,9 +3,9 @@
 <view class='red-box-BG'>
   <view class='item-wrap-bg'>
     <block wx:for="{{9}}" wx:key="redKey">
-      <image class='lock-redPacket' src='/resources/images/redpacket/lock-redPacket.png'></image>
+      <image class='lock-redPacket' src='https://caituwang.yisougame.cn/source_material/gameBox/lockredPacket.png' bindtap='openRedPacketTap'></image>
     </block>
   </view>
 </view>
-
-<template is="openRedTempalte" data="{{...BoxConfig,redpacketColse}}"></template>
+<image src='/resources/images/deposit.png' ></image>
+<template is="openRedTempalte" data="{{...amountConfig,redpacketColse}}"></template>
