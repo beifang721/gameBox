@@ -19,6 +19,9 @@ function timestampToTime(timestamp) {
   var s = date.getSeconds();
   return Y + M + D;
 }
+
+
+
 module.exports = {
   getCurDate: getCurDate,
   timestampToTime:timestampToTime

@@ -46,8 +46,11 @@
   height: 92rpx;
   font-size: 39rpx;
   color: #fff;
-  background-color: #0272d4;
   line-height: 92rpx;
   border-radius: 50rpx;
   margin:90rpx auto 0;
+  background-color: #999;
 } 
+.on{
+  background-color: #0272d4;
+}

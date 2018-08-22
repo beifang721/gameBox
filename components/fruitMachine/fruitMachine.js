@@ -26,8 +26,9 @@ const ysApi = require("../../Api/ysApi.js");
    * @param  {Number} opts.speed  速度值
    * @param  {Function} opts.callback  结束回调
    */  
-  constructor (pageContext, opts) {
+  constructor (pageContext,app, opts) {
     this.page = pageContext
+    this.app = app
     this.len = opts.len || 8
     this.ret = opts.ret || 1
     this.speed = opts.speed
@@ -39,9 +40,10 @@ const ysApi = require("../../Api/ysApi.js");
   start () {
     ysApi.getLotteryResult().then((res)=>{
       let retRandom = Math.ceil(Math.random() * 8);
-      this.ret = res.prizeIndex+1;
+      this.ret = res.prizeIndex;
       console.log("ret", this.ret);
       console.log(res)
+      this.app.globalData.userInfo.gold = res.gold;
       let { idx, ret, len, speed, isStart } = this;
       if (isStart) return;
       this.isStart = true;
@@ -70,14 +72,12 @@ const ysApi = require("../../Api/ysApi.js");
 
         }, speed)
       })(this);
-    }).catch((errMag)=>{
-        wx.showMsg({
-          title: '提示',
-          content: errMsg,
-        })
+    }).catch((errMsg)=>{
+      wx.showModal({
+        title: '提示',
+        content: errMsg,
+      })
     })
-    
-    
   }
 
   reset () {

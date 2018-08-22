@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    version:""
   },
 
   /**
@@ -21,6 +21,9 @@ Page({
         })
       }
     }.bind(this), 200);
+    this.setData({
+      version: app.globalData.version
+    })
   },
 
   /**

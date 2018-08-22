@@ -1,20 +1,21 @@
 <!--pages/find/find.wxml-->
-
 <view>
   <block wx:for="{{findGameData}}" wx:key="findDataKey">
     <view class='find-title width702 f38'>{{item.findTitle}}</view>
-    <view class='findLogo width702' style='background-image:url({{item.findData.miniAppImgUrl}})'>
-      <view class='game-intro-bg'>
+    <view class='findLogo width702' style='background-image:url({{item.findBackground}})'>
+      <view class='game-intro-bg' bindtap='updateTaskTap' data-id='{{item.id}}'>
+        <navigator  target="miniProgram" open-type="navigate" app-id="{{item.appid}}" extra-data="{{item.extraData}}" version="{{version}}" hover-class="none">
         <view class='left'>
-          <image class='find-icon' src='{{item.findData.miniAppImgUrl}}'></image>
+          <image class='find-icon' src='{{item.miniAppImgUrl}}'></image>
           <view class='left-view'>
-            <view class='f30'>{{item.findData.miniAppName}}</view>
-            <view class='f24'>{{item.findData.miniAppName2}}</view>
+            <view class='f30'>{{item.miniAppName}}</view>
+            <view class='f24'>{{item.miniAppName2}}</view>
           </view>
         </view>
         <view class='right'>
           <button class='f36'>开始</button>
         </view>
+        </navigator>
       </view>
     </view>
   </block>

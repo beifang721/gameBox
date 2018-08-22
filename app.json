@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/slots/slots",
     "pages/redpacket/redpacket",
     "pages/goldList/goldList",
-    "pages/slots/slots",
     "pages/mission/mission",
     "pages/person/person",
     "pages/find/find",
@@ -17,6 +17,7 @@
   },
   "tabBar": {
     "color": "#343434",
+    "selectedColor": "#343434",
     "list": [
       {
         "pagePath": "pages/index/index",

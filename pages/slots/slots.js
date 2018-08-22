@@ -22,14 +22,14 @@ Page({
       })
     }.bind(this));
     this.marqueeOn();//跑马灯效果
-    this.fruitMachine = new FruitMachine(this, {
+    this.fruitMachine = new FruitMachine(this,app, {
       // ret: ret, // 取值1～8
       speed: 100,
       callback: (data) => {
         console.log("xxx",data)
         wx.showModal({
           title: '提示',
-          content: '恭喜您，' + this.data.LotteryConfig.prizeArr[data-1].prizeName+'',
+          content: '恭喜您，获得' + this.data.LotteryConfig.prizeArr[data-1].prizeName+'',
           showCancel: false,
           success: res => {
             this.fruitMachine.reset()

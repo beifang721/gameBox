@@ -2,6 +2,7 @@
 *Authorize : 授权
 *
 */
+var ysApi = require("../../Api/ysApi.js");
 class Authorize {
 
   constructor(pageContext, app,callBack) {
@@ -16,7 +17,7 @@ class Authorize {
     this.page.setData({
       signBtnOn:0  //是否点击签到按钮
     })
-    console.log(this.page);
+    // console.log(this.page);
   }
   
   userInfoHandler(e) {
@@ -59,9 +60,28 @@ class Authorize {
       signAwardIndex: this.page.data.signAwardIndex + 1,
       signBtnOn:1
     })
+    ysApi.upDataLoginAwardRecord().then(function(res){
+      var gold = "userInfo.gold";
+      this.app.globalData.userInfo.gold = res.gold;
+      this.page.setData({
+        [gold]: res.gold
+      })
+    }.bind(this))
   }
 
   signBtnPage(){
+    ysApi.upDataLoginAwardRecord().then(function (res) {
+      var loginAwardArr = this.page.data.gameBoxConfig.loginAward;
+      var arrIndex = this.app.globalData.signAwardIndex;
+      var gold = "userInfo.gold";
+      wx.showToast({
+        title: '获得,' +loginAwardArr[arrIndex - 1].award +'金币',
+      })
+      this.app.globalData.userInfo.gold = res.gold;
+      this.page.setData({
+        [gold]: res.gold
+      })
+    }.bind(this));
     this.app.globalData.signAwardIndex++;
     this.app.globalData.isTodaySgin = 1;
     this.page.setData({

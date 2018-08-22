@@ -24,14 +24,25 @@
               <view class='sgin-item'>
                 <view style='padding:0 10rpx;'>{{item.dayIndex}}</view>
                 <view class='goldImg-wrap'>
-                  <block wx:if="{{index>signAwardIndex-1}}">
-                    <image class='signGold' src='/resources/images/sign/signGold-1.png'></image>
+                
+                  <block wx:if="{{index <2}}">
+                    <block wx:if="{{index>signAwardIndex-1}}">
+                      <image class='signGold' src='/resources/images/sign/signGold-1.png'></image>
+                    </block>
+                    <block wx:else>
+                      <image class='signGold' src='/resources/images/sign/sign-finish.png'></image>
+                    </block>
                   </block>
                   <block wx:else>
-                    <image class='signGold' src='/resources/images/sign/sign-finish.png'></image>
+                    <block wx:if="{{index>signAwardIndex-1}}">
+                      <image class='signGold' src='/resources/images/sign/2-1.png'></image>
+                    </block>
+                    <block wx:else>
+                      <image class='signGold' src='/resources/images/sign/2.png'></image>
+                    </block>
                   </block>
                 </view>
-                <view class='f20 text-center' style='color:rgb(85,85,85)'>{{item.award}}</view>
+                <view class='f20 text-center' style='color:rgb(85,85,85)'>{{item.award}}金币</view>
               </view>
             </block>
           </block>
@@ -42,14 +53,15 @@
               <view class='sgin-item'>
                 <view style='padding:0 10rpx;'>{{item.dayIndex}}</view>
                 <view class='goldImg-wrap'>
-                  <block wx:if="{{index>signAwardIndex-1}}">
-                    <image class='signGold' src='/resources/images/sign/signGold-1.png'></image>
-                  </block>
-                  <block wx:else>
-                    <image class='signGold' src='/resources/images/sign/sign-finish.png'></image>
-                  </block>
+                    <block wx:if="{{index>signAwardIndex-1}}">
+                      <image class='signGold' src='/resources/images/sign/3-1.png'></image>
+                    </block>
+                    <block wx:else>
+                      <image class='signGold' src='/resources/images/sign/3.png'></image>
+                    </block>
+                  
                 </view>
-                <view class='f20 text-center' style='color:rgb(85,85,85)'>{{item.award}}</view>
+                <view class='f20 text-center' style='color:rgb(85,85,85)'>{{item.award}}金币</view>
               </view>
             </block>
           </block>

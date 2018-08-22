@@ -6,6 +6,9 @@
       <image class='lock-redPacket' src='https://caituwang.yisougame.cn/source_material/gameBox/lockredPacket.png' bindtap='openRedPacketTap'></image>
     </block>
   </view>
+  <view class='footer'> 
+    <text class='f30'>每次抽奖消耗{{gameBoxConfig.redExpendGold}}金币</text>
+    <text class='f24' bindtap='getGoldTap'>如何获得金币?</text>
+  </view>
 </view>
-<image src='/resources/images/deposit.png' ></image>
 <template is="openRedTempalte" data="{{...amountConfig,redpacketColse}}"></template>

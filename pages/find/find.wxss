@@ -8,10 +8,10 @@
 }
 .findLogo{
   position: relative;
-  height: 760rpx;
+  height: 560rpx;
   display: block;
   margin: auto;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 .findLogo .game-intro-bg{
   position: absolute;

@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
     app.setPageData(this,function(){
       ysApi.getGoldDetail().then(function(res){
-        console.log(res);
+        // console.log(res);
         this.setData({
           getGoldList:res.getGoldList,
           expendGoldList: res.expendGoldList
@@ -37,8 +37,8 @@ Page({
       wx.getSystemInfo({
         success: function (d) {
           var scrollHeight = d.windowHeight - 75 - res[0].height;
-          console.log(res[0].height);
-          console.log(scrollHeight)
+          // console.log(res[0].height);
+          // console.log(scrollHeight)
           that.setData({
             scrollHeight: scrollHeight,
             hiddenLoading: true

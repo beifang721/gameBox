@@ -34,3 +34,14 @@ page{
   height: 172rpx;
 }
 
+.footer{
+  width: 100%;
+  color: rgb(172, 33, 33);
+  position: absolute;
+  bottom: 15rpx;
+  text-align: center;
+}
+.footer .f24{
+  margin-left: 10rpx;
+  /* border-bottom: 1px solid #fff; */
+}

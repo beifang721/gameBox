@@ -1,5 +1,6 @@
 <import src="/template/dialog/dialog.wxml"/> 
 <view class='header-flex'>
+
   <view class='left-wrap ml15'>
     <text class='f26'>欢迎</text>
     <text class='f30'>{{userInfo.nickName}}</text>
@@ -19,13 +20,17 @@
     </view>
   </view>
 </view>
-<view style='height:92rpx'>
+<view style='height:92rpx' id='navHeight'>
 </view>
+
+<scroll-view style='height:{{windowHeight}}px' scroll-y="true">
 <view class='swiperWrap'>
   <swiper indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="rgb(255, 255, 255)" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key="key">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
+    <block wx:for="{{gameBoxConfig.bannerArr}}" wx:key="key">
+      <swiper-item bindtap='updateTaskTap' data-id='{{item.id}}'>
+        <navigator  target="miniProgram" open-type="navigate" app-id="{{item.appid}}" extra-data="{{item.extraData}}" version="{{version}}" hover-class="none">
+          <image src="{{item.url}}" class="slide-image" width="355" height="150" />
+        </navigator>
       </swiper-item>
     </block>
   </swiper>
@@ -35,11 +40,14 @@
   <view class='game-item-wrap'>
     <view class='game-title f36'>{{gameData.gameTitle}}</view>
     <view class='game-list'>
-      <block wx:for="{{gameData.gameList}}" wx:key="listKey" wx:for-item="listData">
-        <view class='game-item'>
-          <image src='{{listData.miniAppImgUrl}}'></image>
-          <view class='f26 text-center'>{{listData.miniAppName}}</view>
-          <view class='p_2 f22 text-center'>{{listData.playUserNum}}</view>
+      <block wx:for="{{gameData.gamedate}}" wx:key="listKey" wx:for-item="listData">
+      
+        <view class='game-item' bindtap='updateTaskTap' data-id='{{listData.id}}'>
+          <navigator  target="miniProgram" open-type="navigate" app-id="{{listData.appid}}" extra-data="{{listData.extraData}}" version="{{version}}" hover-class="none">
+              <image src='{{listData.miniAppImgUrl}}'></image>
+              <view class='f26 text-center'>{{listData.miniAppName}}</view>
+              <view class='p_2 f22 text-center'>{{listData.playUserNum}}</view>
+          </navigator>
         </view>
       </block>  
     </view>
@@ -48,6 +56,11 @@
 <view class='footer'>
   <view class='f24'>我是有底线的</view>
 </view>
+</scroll-view>
+
+<image class='share-icon' src='/resources/images/share-icon.png'>
+  <button class='positionBtn' open-type='share'></button>
+</image>
 
 <template  is="logindialog" data="{{userScope}}"></template>
 

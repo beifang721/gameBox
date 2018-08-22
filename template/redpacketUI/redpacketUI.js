@@ -20,7 +20,8 @@ class OpenRedUI{
 
   openRedPacketTap(){
     ysApi.receiveRedpacket().then((res)=>{
-      console.log(res)
+      // console.log(res)
+      this.app.globalData.userInfo.gold = res.gold;
       var redpacketAmount = "amountConfig.redpacketAmount";
       var curAmount = "amountConfig.curAmount";
       this.page.setData({
@@ -30,7 +31,10 @@ class OpenRedUI{
       })
 
     }).catch((errMsg)=>{
-      
+      wx.showModal({
+        title: '提示',
+        content: errMsg,
+      })
     })
     
   }
