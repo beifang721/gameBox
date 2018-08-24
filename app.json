@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/person/person",
     "pages/slots/slots",
     "pages/redpacket/redpacket",
     "pages/goldList/goldList",
     "pages/mission/mission",
-    "pages/person/person",
     "pages/find/find",
     "pages/deposit/deposit"
   ],

@@ -41,7 +41,6 @@ Page({
       console.log("resres", res)
     });
     app.setPageData(this);
-    
     /*
     var scopeInterval = setInterval(function () {
       if (typeof app.globalData.userScope != "undefined") {
@@ -75,17 +74,17 @@ Page({
   },
   updateTaskTap:function(e){
     var id = e.currentTarget.dataset.id;
+    console.log(e)
     app.ysApi.updateExperienceReward(id).then(function(res){
-      console.log(id)
+      console.log(id);
     }.bind(this)).catch(function(errmsg){
-      console.log(errmsg)
+      console.log(errmsg);
     });
   },
   onShareAppMessage:function(){
     var shareuserId = app.globalData.userInfo.userId;
-    return app.wxApi.onShareAppMessage("我是谁", "/pages/index/index", shareuserId,function (res) {
+    return app.wxApi.onShareAppMessage(1, "/pages/index/index", shareuserId,function (res) {
       console.log(res)
     });
   }
-
 })

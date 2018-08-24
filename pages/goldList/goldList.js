@@ -87,7 +87,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return app.wxApi.onShareAppMessage("跟我来solo", "/pages/index/index", 0, function (res) {
+      console.log(res)
+    });
   },
   swichTop:function(e){
     var that = this;

@@ -41,11 +41,10 @@
     <view class='game-title f36'>{{gameData.gameTitle}}</view>
     <view class='game-list'>
       <block wx:for="{{gameData.gamedate}}" wx:key="listKey" wx:for-item="listData">
-      
         <view class='game-item' bindtap='updateTaskTap' data-id='{{listData.id}}'>
           <navigator  target="miniProgram" open-type="navigate" app-id="{{listData.appid}}" extra-data="{{listData.extraData}}" version="{{version}}" hover-class="none">
               <image src='{{listData.miniAppImgUrl}}'></image>
-              <view class='f26 text-center'>{{listData.miniAppName}}</view>
+              <view class='f24 text-center'>{{listData.miniAppName}}</view>
               <view class='p_2 f22 text-center'>{{listData.playUserNum}}</view>
           </navigator>
         </view>

@@ -3,8 +3,9 @@
   <block wx:for="{{findGameData}}" wx:key="findDataKey">
     <view class='find-title width702 f38'>{{item.findTitle}}</view>
     <view class='findLogo width702' style='background-image:url({{item.findBackground}})'>
+    <navigator  target="miniProgram" open-type="navigate" app-id="{{item.appid}}" extra-data="{{item.extraData}}" version="{{version}}" hover-class="none">
       <view class='game-intro-bg' bindtap='updateTaskTap' data-id='{{item.id}}'>
-        <navigator  target="miniProgram" open-type="navigate" app-id="{{item.appid}}" extra-data="{{item.extraData}}" version="{{version}}" hover-class="none">
+        
         <view class='left'>
           <image class='find-icon' src='{{item.miniAppImgUrl}}'></image>
           <view class='left-view'>
@@ -15,8 +16,12 @@
         <view class='right'>
           <button class='f36'>开始</button>
         </view>
-        </navigator>
+       
       </view>
+       </navigator>
     </view>
   </block>
+  <view class='footer'>
+    <view class='f24'>我是有底线的</view>
+  </view>
 </view>

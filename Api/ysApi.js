@@ -1,6 +1,6 @@
 var testOrformalData = 1; //0：本地数据   1：网络数据
-var testDomain = "http://192.168.1.113:8089/";
-var formalDomain = "";
+// var testDomain = "http://192.168.1.113:8089/";
+var formalDomain = "https://newgamebox.yisougame.cn/";
 var testData = require("./testData.js");
 
 var globalData = {
@@ -14,7 +14,6 @@ var globalData = {
  * @ objData.data     请求参数  对象 
  * @ objData.method   请求方式
  * @ objData.callBack 请求结果回调
- *
  */
 function requestFn(objData) {
   // console.log(objData);
@@ -42,6 +41,7 @@ function wxlogin() {
     }
     var options = wx.getLaunchOptionsSync();
     var query = options.query;
+    console.log(options)
     var shareUserId = 0;
     if (JSON.stringify(query) != "{}") {
       if (typeof (query.shareUserId) != "undefined") { //有分享者Id
@@ -60,7 +60,8 @@ function wxlogin() {
               shareuserId: shareUserId
             },
             callBack: function (data) {
-              console.log("亿搜登录", data)
+              console.log("shareuserId分享者的Id", shareUserId);
+              console.log("亿搜登录", data);
               if (data.retCode == 0) {
                 globalData.rd_session = data.rd_session;
                 globalData.userId = data.userId;
@@ -345,14 +346,14 @@ function getLotteryResult() {
 }
 
 // 上传FormId
-function upLoadFormId() {
+function upLoadFormId(data) {
   var promise = new Promise(function (resolve, reject) {
     if (testOrformalData == 0) {
       return resolve(0, "");
     }
     requestFn({
-      urlName: 'PublicNumber/formId',
-      data: { userId: globalData.userId, rd_session: globalData.rd_session, formId: formId },
+      urlName: 'PublicNumber/FormId',
+      data: { userId: globalData.userId, rd_session: globalData.rd_session, formId: data },
       method: "GET",
       callBack: function (res) {
         console.log("亿搜上传formId", res);
@@ -445,7 +446,7 @@ function updateExperienceReward(data){
     }
     requestFn({
       urlName: 'PublicNumber/UpdateExperienceReward',
-      data: { userId: globalData.userId, rd_session: globalData.rd_session, apId:data },
+      data: { userId: globalData.userId, rd_session: globalData.rd_session, apid:data },
       method: "GET",
       callBack: function (res) {
         console.log("更新任务", res);

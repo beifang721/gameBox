@@ -46,12 +46,20 @@
 <view class='max-btn-wrap'>
   <view class='pub left' bindtap='goldListTap'>
     <image class='gold-icon' src='/resources/images/person/person-gold.png'></image>
+    <form bindsubmit='formIdBtn' report-submit='true'>
+      <button class='positionBtn formIdBtn'form-type='submit' style='opacity:0'>
+      </button>  
+    </form>
     <view class='myGold-text'>
         <view class='f30'>我的金币</view>
         <view class='f24'>金币明细</view>
     </view>
   </view>
   <view class='pub right' bindtap='turntableTap'>
+    <form bindsubmit='formIdBtn' report-submit='true'>
+      <button class='positionBtn formIdBtn'form-type='submit' style='opacity:0'>
+      </button>  
+    </form>
     <image class='turntable-icon' src='/resources/images/person/turntable-icon.png'></image>
     <view class='myGold-text'>
         <view class='f30'>金币抽奖</view>
@@ -60,11 +68,16 @@
   </view>
 </view>
 
-<view class='swiperWrap'>
+<view class='swiperWrap' wx:if="{{userScope!=0}}">
   <swiper indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="rgb(255, 255, 255)" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:key="key">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" bindtap='redpacktetPage'/>
+        <image src="{{item}}" class="slide-image" width="355" height="150" bindtap='redpacktetPage'>
+          <form bindsubmit='formIdBtn' report-submit='true'>
+            <button class='positionBtn formIdBtn'form-type='submit' style='opacity:0'>
+            </button>  
+          </form>
+        </image>
       </swiper-item>
     </block>
   </swiper>

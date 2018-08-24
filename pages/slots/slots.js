@@ -59,7 +59,9 @@ Page({
     }.bind(this), 500)
   },
   getGoldTap:function(){
-
+    wx.navigateTo({
+      url: '/pages/mission/mission',
+    })
   },
   
   /**
@@ -108,6 +110,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return app.wxApi.onShareAppMessage(0, "/pages/index/index",0, function (res) {
+      console.log(res)
+    });
   }
 })

@@ -14,6 +14,7 @@ class Authorize {
     this.page.closeSign = this.closeSign.bind(this);
     this.page.signBtn = this.signBtn.bind(this); //弹窗的签到按钮点击事件
     this.page.signBtnPage = this.signBtnPage.bind(this);//页面的点击事件
+    this.page.formIdBtn = this.formIdBtn.bind(this)
     this.page.setData({
       signBtnOn:0  //是否点击签到按钮
     })
@@ -66,7 +67,7 @@ class Authorize {
       this.page.setData({
         [gold]: res.gold
       })
-    }.bind(this))
+    }.bind(this)).catch(function(){});
   }
 
   signBtnPage(){
@@ -75,19 +76,25 @@ class Authorize {
       var arrIndex = this.app.globalData.signAwardIndex;
       var gold = "userInfo.gold";
       wx.showToast({
-        title: '获得,' +loginAwardArr[arrIndex - 1].award +'金币',
+        title: '获得'+loginAwardArr[arrIndex - 1].award +'金币',
       })
       this.app.globalData.userInfo.gold = res.gold;
       this.page.setData({
         [gold]: res.gold
       })
-    }.bind(this));
+    }.bind(this)).catch(function () { });
     this.app.globalData.signAwardIndex++;
     this.app.globalData.isTodaySgin = 1;
     this.page.setData({
       isTodaySgin: 1,
       signAwardIndex: this.page.data.signAwardIndex + 1
     })
+  }
+  formIdBtn(e){
+    console.log(e)
+    ysApi.upLoadFormId(e.detail.formId).then(function(){
+
+    }).catch(function(){})
   }
 
   

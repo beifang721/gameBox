@@ -134,6 +134,10 @@ page{
   align-items: center;
   /* box-shadow: 0px 3px 3px 0px  rgba(0, 0, 0, 0.5); */
 }
+.formIdBtn{
+  height: 100%;
+  left: 0
+}
 .max-btn-wrap .left{
   background-image: url("https://caituwang.yisougame.cn/source_material/gameBox/person/myGold-InfoBG.png");
 }

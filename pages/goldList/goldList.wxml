@@ -24,7 +24,7 @@
   <block wx:if="{{currentTab==0}}">
     <view class='item' wx:for="{{getGoldList}}" wx:key="getkey">
       <view class='item-left'>
-        <view class='f30'>签到</view>
+        <view class='f30'>{{item.recordName}}</view>
         <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>{{item.time}}</view>
       </view>
       <view class='item-right f30'>
@@ -36,7 +36,7 @@
   <block wx:if="{{currentTab==1}}">
     <view class='item'  wx:for="{{expendGoldList}}" wx:key="xFkey">
       <view class='item-left'>
-        <view class='f30'>签到123</view>
+        <view class='f30'>{{item.recordName}}</view>
         <view class='f24' style='color:rgb(133,133,133);padding-top:10rpx;'>{{item.time}}</view>
       </view>
       <view class='item-right f30'>

@@ -38,25 +38,28 @@ Page({
           this.setData({
             missionConfig: res
           })
-        }.bind(this));
+        }.bind(this)).catch(()=>{});
       }
     }.bind(this), 200);
   },
   receiveTap: function (e) { //领取任务奖励
     var missionid = e.currentTarget.dataset.missionid;
+    var missindex = e.currentTarget.dataset.missindex;
     ysApi.receiveMissionAward(missionid).then(function (res) {
       console.log(app.globalData.userInfo.gold, res)
-      app.globalData.userInfo.gold = app.globalData.userInfo.gold + res;
+      app.globalData.userInfo.gold = res.gold;
       var gold = "userInfo.gold";
+      var isReceive = "missionConfig[" + missindex + "].isReceive";
       this.setData({
-        [gold]: this.data.userInfo.gold + res
+        [gold]: res.gold,
+        [isReceive]: true
       })
-      //测试用
-      testData.missionConfig[missionid - 1].isFinished = true;
-      testData.missionConfig[missionid - 1].isReceive = true;
       return ysApi.getMissionConfig();
     }.bind(this)).catch(function (errMsg) {
-
+      wx.showModal({
+        title: '提示',
+        content: '' + errMsg + ''
+      })
     }).then(function (res) {
       this.setData({
         missionConfig: res
@@ -97,6 +100,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var shareuserId = app.globalData.userInfo.userId;
+    return app.wxApi.onShareAppMessage(1, "/pages/index/index", shareuserId, function (res) {
+      console.log(res)
+    });
   }
 })
