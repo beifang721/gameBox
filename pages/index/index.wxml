@@ -1,6 +1,5 @@
 <import src="/template/dialog/dialog.wxml"/> 
 <view class='header-flex'>
-
   <view class='left-wrap ml15'>
     <text class='f26'>欢迎</text>
     <text class='f30'>{{userInfo.nickName}}</text>
